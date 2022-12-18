@@ -10,8 +10,8 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-       Manager manager = new Manager();
-       manager.Welcome();
+       Abstract anAbstract = new Abstract();
+       anAbstract.Welcome();
     }
 
     public static void main(String[] args) {
