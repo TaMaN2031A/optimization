@@ -11,7 +11,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
        Abstract anAbstract = new Abstract();
-       anAbstract.Welcome();
+       anAbstract.Welcome("phase one");
     }
 
     public static void main(String[] args) {
