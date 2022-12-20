@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_16">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -35,5 +35,57 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../poi-bin-5.2.3-20220909/poi-bin-5.2.3/poi-5.2.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../poi-bin-5.2.3-20220909/poi-bin-5.2.3/poi-examples-5.2.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../poi-bin-5.2.3-20220909/poi-bin-5.2.3/poi-excelant-5.2.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../poi-bin-5.2.3-20220909/poi-bin-5.2.3/poi-ooxml-5.2.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../poi-bin-5.2.3-20220909/poi-bin-5.2.3/poi-ooxml-full-5.2.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../poi-bin-5.2.3-20220909/poi-bin-5.2.3/poi-ooxml-lite-5.2.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../poi-bin-5.2.3-20220909/poi-bin-5.2.3/poi-scratchpad-5.2.3.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$MODULE_DIR$/../../../poi-bin-5.2.3-20220909/poi-bin-5.2.3/poi-javadoc-5.2.3.jar!/" />
+        </JAVADOC>
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/osgi/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/osgi/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-examples/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-examples/src/main/ruby/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-examples/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-excelant/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-excelant/src/poi-ant-contrib/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-excelant/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-integration/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-ooxml-lite-agent/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-ooxml/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-ooxml/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-scratchpad/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi-scratchpad/src/test/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi/src/main/java" />
+          <root url="jar://$MODULE_DIR$/../../../poi-src-5.2.3-20220909.zip!/poi-src-5.2.3-20220909-5.2.3/poi/src/test/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../xmlbeans-2.6.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

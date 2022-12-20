@@ -11,6 +11,7 @@ module com.example.optimization {
     requires eu.hansolo.tilesfx;
     requires javafx.graphics;
 
+
     opens com.example.optimization to javafx.fxml;
     exports com.example.optimization;
 }
