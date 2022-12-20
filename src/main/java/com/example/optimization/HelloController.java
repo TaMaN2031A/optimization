@@ -138,7 +138,25 @@ public class HelloController {
                 answer.setText(ih.showResult(sol1D,All.size(),LUchoice));
                 break;
             case "Gauss Seidil":
-
+                double[][] A = new double[All.size()][All.size()+1];
+                double[] b = new double[iterateVec.size()];
+                for(int i = 0; i < All.size(); i++)
+                {
+                    for(int j = 0; j < All.size()+1; j++)
+                    {
+                        A[i][j] = All.get(i).get(j);
+                    }
+                }
+                for(int i = 0; i < iterateVec.size(); i++)
+                {
+                    b[i] = iterateVec.get(i);
+                }
+                if(itunput == 2) {
+                    sol1D = s.JacobiI(A,b,Integer.parseInt(itchoice),precition);
+                }
+                else if (itunput == 1){
+                    sol1D = s.Jacobi(A,b,Integer.parseInt(itchoice),precition);
+                }
                 break;
             case "Jacobi Iteration":
 
@@ -316,6 +334,7 @@ public class HelloController {
         }
     }
     protected void next4(){
+        itchoice = itOrrelaC.getText();
         pageiterate.setVisible(false);
         next.setVisible(false);
         page3.setVisible(true);

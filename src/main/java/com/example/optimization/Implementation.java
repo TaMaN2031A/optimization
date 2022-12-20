@@ -277,4 +277,171 @@ public class Implementation implements Iimplementation {
         }
         return Solution;
     }
+    //  Giving : -- initial guess + number of iterations --
+    public ArrayList<Double> JacobiI(double [][] aug ,  double [] oldX , int nIterations , int precision)
+    {
+        double A [][] = new double[aug.length][aug.length];
+        double b[] = new double[aug.length];
+        for(int i=0 ; i< aug.length ; i++)
+        {
+            for(int j=0 ; j< aug.length ; j++)
+            {
+                A[i][j] = implementationHelper.set_precision(aug[i][j] , precision);
+            }
+            b[i] = implementationHelper.set_precision(aug[i][aug.length] , precision);
+        }
+        // check if there are 0 in the main diagonal
+        for(int i=0 ; i<b.length ; i++)
+        {
+            if (A[i][i] == 0)
+            {
+                System.out.println("The system can't be solved using this method");
+                ArrayList <Double> out = new ArrayList<>();
+                out.add(-1.0);
+                return out;
+            }
+        }
+        int rows = aug.length;
+        double x [][] = new double[rows][2];
+        x[0][1] = 0;                                                  // # of iterations taken
+        double ea = 1;
+        while(nIterations > 0)
+        {
+            System.out.println("iteration" + (x[0][1] + 1));
+            if(x[0][1] > 0)
+            {
+                for(int i = 0;  i < rows ;  i++)
+                {
+                    oldX[i] = implementationHelper.set_precision(x[i][0] , precision);                  // make x = old one before going into the iterations "jacobi"
+                }
+            }
+
+            //Each iteration takes O(n2) time
+            for(int i = 0;  i < rows ;  i++)
+            {
+                double subValue = 0.0;
+                for(int j = 0 ;  j < rows ;  j++)           // to get the subtracted value from b
+                {
+                    if(i != j)          // not a main diagonal element
+                    {
+                        subValue = implementationHelper.set_precision(subValue , precision)  + implementationHelper.set_precision(A[i][j] * oldX[j] , precision);
+                    }
+                }
+                //System.out.println("subValue: " + subValue);
+                x[i][0] = implementationHelper.set_precision((( b[i] - subValue ) / A[i][i]) , precision);            // calculate the Xs
+                System.out.println("x"+(i+1)+":   " + x[i][0]);
+            }
+            nIterations--;
+            if(x[0][1] > 0)
+            {
+                if(x[0][0] != 0)
+                    ea = Math.abs((x[0][0]  - oldX[0])/x[0][0]);                       // getting the error
+                for(int i = 1;  i < rows ;  i++)
+                {
+                    if(x[i][0] != 0)
+                    {
+                        if(ea < Math.abs(((x[i][0] - oldX[i])/x[i][0])))
+                        {
+                            ea = Math.abs(((x[i][0] - oldX[i])/x[i][0]));
+                        }
+                    }
+                }
+                System.out.println("the relative approximate error: " + ea);
+            }
+            x[0][1] ++;
+            x[1][1] = ea;
+        }
+        ArrayList <Double> out = new ArrayList<>();
+        for (int i=0 ; i<rows ; i++)
+            out.add(x[i][0]);
+        out.add(x[0][1]);
+        out.add(x[1][1]);
+        return  out;
+    }
+
+
+    //  Giving : -- initial guess + error tolerance --
+    public ArrayList<Double> Jacobi(double [][] aug ,  double [] oldX  , double es , int precision)
+    {
+        int maxIterations = 100;
+        double A [][] = new double[aug.length][aug.length];
+        double b[] = new double[aug.length];
+        for(int i=0 ; i< aug.length ; i++)
+        {
+            for(int j=0 ; j< aug.length ; j++)
+            {
+                A[i][j] = implementationHelper.set_precision(aug[i][j] , precision);
+            }
+            b[i] = implementationHelper.set_precision(aug[i][aug.length] , precision);
+        }
+
+        // check if there are 0 in the main diagonal
+        for(int i=0 ; i<b.length ; i++)
+        {
+            if (A[i][i] == 0)
+            {
+                System.out.println("The system can't be solved using this method");
+                ArrayList <Double> out = new ArrayList<>();
+                out.add(-1.0);
+                return out;
+            }
+        }
+
+        int rows = aug.length;
+        double x [][] = new double[rows][2];
+        x[0][1] = 0;                                                  // # of iterations taken
+        double ea = es+1;                                         // to make sure it is greater than es
+        while((ea >= es ) &&  (maxIterations > 0))
+        {
+            System.out.println("iteration" + (x[0][1] + 1));
+            if(x[0][1] > 0)
+            {
+                for(int i = 0;  i < rows ;  i++)
+                {
+                    oldX[i] = implementationHelper.set_precision(x[i][0] , precision);                   // make x = old one before going into the iterations "jacobi"
+                }
+            }
+
+            //Each iteration takes O(n2) time
+            for(int i = 0;  i < rows ;  i++)
+            {
+                double subValue = 0.0;
+                for(int j = 0 ;  j < rows ;  j++)           // to get the subtracted value from b
+                {
+                    if(i != j)          // not a main diagonal element
+                    {
+                        subValue = implementationHelper.set_precision(subValue , precision)  + implementationHelper.set_precision(A[i][j] * oldX[j] , precision);
+                    }
+                }
+                //System.out.println("subValue: " + subValue);
+                x[i][0] = implementationHelper.set_precision((( b[i] - subValue ) / A[i][i]) , precision);            // calculate the Xs
+                System.out.println("x"+(i+1)+":   " + x[i][0]);
+            }
+            maxIterations--;
+            if(x[0][1] > 0)
+            {
+                if(x[0][0] != 0)
+                    ea = Math.abs((x[0][0]  - oldX[0])/x[0][0]);                       // getting the error
+                for(int i = 1;  i < rows ;  i++)
+                {
+                    if(x[i][0] != 0)
+                    {
+                        if(ea < Math.abs(((x[i][0] - oldX[i])/x[i][0])))
+                        {
+                            ea = Math.abs(((x[i][0] - oldX[i])/x[i][0]));
+                        }
+                    }
+                }
+                System.out.println("the relative approximate error: " + ea);
+            }
+            x[0][1] ++;
+            x[1][1] = ea;
+        }
+        ArrayList <Double> out = new ArrayList<>();
+        for (int i=0 ; i<rows ; i++)
+            out.add(x[i][0]);
+        out.add(x[0][1]);
+        out.add(x[1][1]);
+        return  out ;
+    }
 }
